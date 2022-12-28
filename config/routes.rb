@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
     namespace :admin do
+          root "homes#top"
           resources :homes
           resources :cats
           resources :comments
@@ -31,5 +32,10 @@ Rails.application.routes.draw do
           resources :posts
         end
           get "/about" => "public/homes#about", as: "about"
+          get "/members/my_page" => "public/members#show"
           root to: "public/homes#top"
+          
+          devise_scope :member do
+          post 'members/guest_sign_in' => 'public/sessions#guest_sign_in'
+          end
 end
