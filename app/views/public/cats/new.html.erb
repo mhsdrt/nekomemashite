@@ -1,0 +1,20 @@
+
+<h1>ネコ登録フォーム</h1>
+  <%= form_with model: @cat,url: public_cats_path do |f| %>
+    <h4>ネコの画像</h4>
+      <%= f.file_field :image, accept: "image/*" %>
+    <h4>お名前</h4>
+      <%= f.text_field :name %>
+    <h4>性別</h4>
+      <%= f.text_field :sex %>
+    <h4>年齢</h4>
+      <%= f.text_field :age %>
+    <h4>ネコの種類</h4>
+      <%= f.text_field :cattype %>
+    <h4>性格</h4>
+      <%= f.text_field :character %>
+    <h4>プロフィール</h4>
+      <%= f.text_area :profile %>
+      
+    <%= f.submit '登録' %>
+  <% end %>

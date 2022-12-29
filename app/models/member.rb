@@ -12,4 +12,8 @@ class Member < ApplicationRecord
       # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
+    has_many :cats, dependent: :destroy
+    has_many :posts, dependent: :destroy
+    has_many :comments, dependent: :destroy
+    has_many :likes, dependent: :destroy
 end

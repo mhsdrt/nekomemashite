@@ -23,13 +23,13 @@ Rails.application.routes.draw do
         
     namespace :public do
           resources :homes
-          resources :cats
+          resources :cats, only: [:new, :create, :index, :show, :edit, :update]
           resources :comments
           resources :comment_notifications
           resources :likes
           resources :like_notifications
           resources :members
-          resources :posts
+          resources :posts, only: [:new, :create, :index, :show]
         end
           get "/about" => "public/homes#about", as: "about"
           get "/members/my_page" => "public/members#show"
