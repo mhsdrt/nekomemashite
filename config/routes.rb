@@ -23,17 +23,18 @@ Rails.application.routes.draw do
         
     namespace :public do
           resources :homes
-          resources :cats, only: [:new, :create, :index, :show, :edit, :update]
+          resources :cats, only: [:new, :create, :index, :show, :edit, :update, :destroy]
           resources :comments
           resources :comment_notifications
           resources :likes
           resources :like_notifications
           resources :members
-          resources :posts, only: [:new, :create, :index, :show]
+          resources :posts, only: [:new, :create, :index, :show, :destroy]
         end
           get "/about" => "public/homes#about", as: "about"
           get "/members/my_page" => "public/members#show"
           root to: "public/homes#top"
+          get "search_post" => "posts#search_post"
           
           devise_scope :member do
           post 'members/guest_sign_in' => 'public/sessions#guest_sign_in'

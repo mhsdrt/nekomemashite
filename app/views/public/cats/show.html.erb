@@ -1,7 +1,7 @@
 ネコ詳細
 
 <div>
-  <%= image_tag @cat.get_image %>
+  <%= image_tag @cat.get_cat_image(100,100) %>
   <p>お名前：<%= @cat.name %></p>
   <p>性別：<%= @cat.sex %></p>
   <p>年齢：<%= @cat.age %></p>
@@ -9,3 +9,4 @@
   <p>性格：<%= @cat.character %></p>
   <p>プロフィール：<%= @cat.profile %></p>
 </div>
+    <td><%= link_to"Destroy",public_cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>

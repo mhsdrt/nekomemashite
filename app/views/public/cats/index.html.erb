@@ -4,7 +4,7 @@
 <div>
   <p><%= cat.name %>(<%= cat.sex %>)</p>
     <%= link_to public_cat_path(cat.id) do %>
-    <%= image_tag cat.get_image %>
+    <%= image_tag cat.get_cat_image(100,100) %>
     <% end %>
 </div>
 <% end %>

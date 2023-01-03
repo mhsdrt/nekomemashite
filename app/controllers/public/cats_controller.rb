@@ -4,8 +4,7 @@ class Public::CatsController < ApplicationController
   end
   
   def create
-      # 投稿データの保存
-  @cat = Cat.new(cat_params)
+    @cat = Cat.new(cat_params)
     @cat.member_id = current_member.id
     @cat.save
     redirect_to  public_cats_path
@@ -13,7 +12,8 @@ class Public::CatsController < ApplicationController
   end
   
   def index
-    @cats = Cat.all
+    @member = current_member
+    @cats = @member.cats
   end
   
   def show
@@ -21,12 +21,15 @@ class Public::CatsController < ApplicationController
   end
   
   def destroy
+    @cat = Cat.find(params[:id])
+    @cat.destroy
+    redirect_to '/public/cats'
   end
 
   private
 
   def cat_params
-    params.require(:cat).permit(:image, :name, :sex, :age, :cattype, :character, :profile)
+    params.require(:cat).permit(:member_id, :cat_image, :name, :sex, :age, :cattype, :character, :profile)
   end
 
 end

@@ -1,0 +1,13 @@
+ネコ活一覧
+
+<% @posts.each do |post| %>
+  <div>
+    <p>投稿者:<%= post.member.name %></p>
+    <p>ネコ:<%= post.cat.name %></p>
+    <%= link_to public_post_path(post.id) do %>
+    <%= image_tag post.get_post_image(200,200) %>
+    <% end %>
+    <p><%= post.content %></p>
+    <p><%= link_to post.tag, search_post_path(keyword: post.tag) %></p>
+  </div>
+<% end %>
