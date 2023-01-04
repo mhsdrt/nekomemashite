@@ -34,7 +34,7 @@ Rails.application.routes.draw do
           get "/about" => "public/homes#about", as: "about"
           get "/members/my_page" => "public/members#show"
           root to: "public/homes#top"
-          get "search_post" => "posts#search_post"
+
           
           devise_scope :member do
           post 'members/guest_sign_in' => 'public/sessions#guest_sign_in'

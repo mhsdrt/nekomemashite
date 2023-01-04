@@ -26,10 +26,7 @@ class Public::PostsController < ApplicationController
     redirect_to '/public/posts'
   end
   
-   def search_post
-     @post=Post.new
-     @posts = Post.search(params[:keyword])
-   end
+
 
   private
 

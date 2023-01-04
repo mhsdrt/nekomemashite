@@ -14,8 +14,6 @@ class Post < ApplicationRecord
     post_image.variant(resize_to_limit: [width, height]).processed
       end
       
-    def self.search(search_word)
-      Post.where(['tag LIKE ?', "#{search_word}"])
-    end
+
       
 end
