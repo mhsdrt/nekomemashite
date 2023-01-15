@@ -22,6 +22,10 @@
         <%= link_to "マイページ", members_my_page_path, class:"btn btn-light" %>
         <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class:"btn btn-light" %>
         
+        <div class="d-flex justify-content-center mb-2">
+        <%= render 'public/searches/form' %>
+        </div>
+        
       <% elsif admin_signed_in?%>
       <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
       
@@ -30,8 +34,10 @@
         <%= link_to "新規登録", new_member_registration_path, class:"btn btn-light" %>
         <%= link_to "ログイン", new_member_session_path, class:"btn btn-light" %>
         <%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post %>
-        <% end %>
+
+      <% end %>
       </nav>
+
       
     </header>
 

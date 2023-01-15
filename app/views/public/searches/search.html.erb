@@ -1,0 +1,17 @@
+<p><%#= @records.inspect %></p>
+<% @records.each do |record| %>
+<p><%#= record.inspect %></p>
+  <%= link_to public_posts_path do %>
+  
+    <% if @type == "keyword" %>
+    
+      <%= record.content %><br>
+      
+    <% else %>
+    
+      <%= record.tag %><br>
+      
+    <% end %>
+    
+  <% end %>
+<% end %>

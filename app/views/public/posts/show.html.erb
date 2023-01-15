@@ -1,3 +1,9 @@
-ああ
 
+  <div>
+    <p>投稿者:<%= @post.member.name %></p>
+    <p>ネコ:<%= @post.cat.name %></p>
+    <%= image_tag @post.get_post_image(200,200) %>
+    <p><%= @post.content %></p>
+
+  </div>
 <td><%= link_to"Destroy",public_post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>

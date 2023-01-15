@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'searches/search'
+  end
   devise_for :members,skip: [:passwords],  controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -34,7 +37,7 @@ Rails.application.routes.draw do
           get "/about" => "public/homes#about", as: "about"
           get "/members/my_page" => "public/members#show"
           root to: "public/homes#top"
-
+          get '/search', to: 'public/searches#search'
           
           devise_scope :member do
           post 'members/guest_sign_in' => 'public/sessions#guest_sign_in'
