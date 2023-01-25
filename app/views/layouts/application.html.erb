@@ -12,8 +12,9 @@
   
   <body>
     <header>
-      <h5>ネコ好きが集うコミュニティサイト</h5><br>
-      <h1>nekomemashite</h1>
+        <div class="logo_area", align="center">
+          <a class="navbar-brand" href="/"><%= image_tag 'header.jpg', class: "logo" %></a>
+        </div>
       <nav class="navbar navbar-default shadow-sm">
       <% if member_signed_in? %>
         <%= link_to "About", about_path, class:"btn btn-light" %>
@@ -27,7 +28,7 @@
         </div>
         
       <% elsif admin_signed_in?%>
-      <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
+      <%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %>
       
       <% else %>
         <%= link_to "About", about_path, class:"btn btn-light" %>

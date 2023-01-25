@@ -4,7 +4,9 @@ class Post < ApplicationRecord
     belongs_to :cat
     has_many :comments, dependent: :destroy
     has_many :likes, dependent: :destroy
+    has_many :liked_members, through: :likes, source: :member
     has_one_attached :post_image
+
     
     
       def get_post_image(width, height)

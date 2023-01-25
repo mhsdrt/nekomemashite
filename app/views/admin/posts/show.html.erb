@@ -1,0 +1,23 @@
+  <table align="center" border="1">
+    <thead>
+      <tr>
+        <th>ネコ活</th>
+        <th>ID</th>
+        <th>ネコ</th>
+        <th>タグ</th>
+        <th>本文</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= image_tag @post.get_post_image(100,100) %></td>
+        <td><%= @post.id %></td>
+        <td><%= @post.cat.name %></td>
+        <td><%= @post.tag %></td>
+        <td width="500"><%= @post.content %></td>
+        <td><%= link_to"Destroy",admin_post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td></td>
+      </tr>
+    </tbody>
+  </table>
+        <%= link_to "戻る", :back %>

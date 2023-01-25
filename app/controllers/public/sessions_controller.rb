@@ -29,4 +29,15 @@ class Public::SessionsController < Devise::SessionsController
     sign_in member
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
+  
+  protected
+
+  def member_state #論理削除された退会済みユーザーがログインできない
+    @member = Member.find_by(email: params[:member][:email])
+    return if !@member
+    if @member.valid_password?(params[:member][:password]) && (@member.is_deleted == true)
+    flash[:error] = "退会済みです。"
+    redirect_to new_member_session_path
+    end
+  end
 end

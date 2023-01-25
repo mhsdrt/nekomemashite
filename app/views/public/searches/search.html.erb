@@ -1,17 +1,19 @@
+
+検索結果 <%= @content %> <%= @records.count %>件
 <p><%#= @records.inspect %></p>
 <% @records.each do |record| %>
 <p><%#= record.inspect %></p>
-  <%= link_to public_posts_path do %>
-  
+
     <% if @type == "keyword" %>
     
-      <%= record.content %><br>
-      
+      ネコ：<%= record.cat.name %><br>
+      投稿者：<%= record.member.name %><br>
+      タグ：<%= record.tag %><br>
+      <%= image_tag record.get_post_image(200,200) %><br>
+        <%= link_to public_posts_path do %>
+          <%= record.content %>
+        <% end %><br>
     <% else %>
-    
       <%= record.tag %><br>
-      
     <% end %>
-    
-  <% end %>
 <% end %>

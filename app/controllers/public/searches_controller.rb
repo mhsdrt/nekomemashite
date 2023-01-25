@@ -2,9 +2,9 @@ class Public::SearchesController < ApplicationController
 
   def search
     @type = params["type"]
-    content = params["content"]
+    @content = params["content"]
     method = params["method"]
-    @records = search_for(@type, content, method)
+    @records = search_for(@type, @content, method)
     #byebug
   end
 

@@ -4,6 +4,40 @@
     <p>ネコ:<%= @post.cat.name %></p>
     <%= image_tag @post.get_post_image(200,200) %>
     <p><%= @post.content %></p>
+    <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
+    <% if @post.member == current_member %>
+    <%= link_to "削除", public_post_path(@post), method: :delete %>
+  <% end %>
+  
+    <!--いいねの実装 -->
+<div id = "like_<%= @post.id %>">
+  <%= render partial: "public/likes/like", locals: { post: @post } %>
+</div>
 
   </div>
+  
+  <!-- コメントの実装 -->
+  <div>
+  <p>コメント件数：<%= @post.comments.count %></p>
+  <% @post.comments.each do |comment| %>
+    <%= comment.member.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    
+    <% if comment.member == current_member %>
+      <%= link_to "削除", public_post_comment_path(comment.post, comment), method: :delete %>
+    <% end %>
+    
+
+    
+    <% end %>
+  
+</div>
+
+<div>
+  <%= form_with url: public_post_comments_path(@post) do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>
+</div>
+
 <td><%= link_to"Destroy",public_post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>

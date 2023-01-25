@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
     namespace :admin do
-          root "homes#top"
+          root to: "homes#top"
           resources :homes
           resources :cats
           resources :comments
@@ -27,17 +27,21 @@ Rails.application.routes.draw do
     namespace :public do
           resources :homes
           resources :cats, only: [:new, :create, :index, :show, :edit, :update, :destroy]
-          resources :comments
           resources :comment_notifications
-          resources :likes
           resources :like_notifications
-          resources :members
-          resources :posts, only: [:new, :create, :index, :show, :destroy]
+          resources :members do
+            get :likes
+          end
+          resources :posts, only: [:new, :create, :index, :show, :destroy] do
+            resource :likes, only: [:create, :destroy]
+            resources :comments, only: [:create, :destroy]
+          end
         end
           get "/about" => "public/homes#about", as: "about"
           get "/members/my_page" => "public/members#show"
           root to: "public/homes#top"
           get '/search', to: 'public/searches#search'
+          
           
           devise_scope :member do
           post 'members/guest_sign_in' => 'public/sessions#guest_sign_in'
