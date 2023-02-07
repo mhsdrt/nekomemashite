@@ -16,12 +16,13 @@ Rails.application.routes.draw do
           root to: "homes#top"
           resources :homes
           resources :cats
-          resources :comments
           resources :comment_notifications
           resources :likes
           resources :like_notifications
           resources :members
-          resources :posts
+          resources :posts do
+            resources :comments, only: [:destroy]
+          end
         end
         
     namespace :public do
@@ -30,8 +31,10 @@ Rails.application.routes.draw do
           resources :comment_notifications
           resources :like_notifications
           resources :members do
-            get :likes
-          end
+                        member do
+                          get :likes
+                              end
+                            end
           resources :posts, only: [:new, :create, :index, :show, :destroy] do
             resource :likes, only: [:create, :destroy]
             resources :comments, only: [:create, :destroy]

@@ -14,6 +14,7 @@ class Public::LikesController < ApplicationController
   end
   
   private
+  
   def post_params
     @post = Post.find(params[:post_id])
   end

@@ -1,4 +1,4 @@
-マイページ
+<legend>マイページ</legend>
 <% @cats.each do |cat| %>
 <div>
   <p><%= cat.name %>(<%= cat.sex %>)</p>
@@ -8,4 +8,4 @@
 </div>
 <% end %>
 
-<%= link_to "いいねした投稿",  public_member_likes_path(@member) %>
+<%= link_to "いいねした投稿",  likes_public_member_path(@member) %>

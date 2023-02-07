@@ -5,6 +5,7 @@
         <th>ID</th>
         <th>ネコ</th>
         <th>タグ</th>
+        <th>いいね</th>
         <th>本文</th>
         <th></th>
       </tr>
@@ -15,9 +16,32 @@
         <td><%= @post.id %></td>
         <td><%= @post.cat.name %></td>
         <td><%= @post.tag %></td>
+        <td><%= @post.likes.count %></td>
         <td width="500"><%= @post.content %></td>
         <td><%= link_to"Destroy",admin_post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td></td>
       </tr>
     </tbody>
   </table>
+  
+    <p>コメント件数：<%= @post.comments.count %></p>
+          <% @post.comments.each do |comment| %>
+    <table align="center" border="1">
+    <thead>
+      <tr>
+        <th>ユーザー名</th>
+        <th>日時</th>
+        <th>コメント内容</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= comment.member.name %></td>
+        <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= comment.comment %></td>
+        <td><%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% end %>
         <%= link_to "戻る", :back %>

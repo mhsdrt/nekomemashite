@@ -5,12 +5,14 @@ class Admin::MembersController < ApplicationController
     @posts = @member.posts
   end
   
+  def index
+    @members = Member.all
+  end
 
-  
-      private
+
+  private
     
-    def member_params
-      params.require(:member).
-      permit(:email, :name, :is_deleted)
-    end
+  def member_params
+    params.require(:member).permit(:email, :name, :is_deleted)
+  end
 end

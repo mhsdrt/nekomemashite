@@ -28,13 +28,15 @@
         </div>
         
       <% elsif admin_signed_in?%>
-      <%= link_to ' ログアウト', destroy_admin_session_path, method: :delete %>
+      <%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-light" %>
+      <%= link_to 'ネコ活一覧', admin_posts_path, class:"btn btn-light" %>
+      <%= link_to 'ユーザー一覧', admin_members_path, class:"btn btn-light" %>
       
       <% else %>
         <%= link_to "About", about_path, class:"btn btn-light" %>
         <%= link_to "新規登録", new_member_registration_path, class:"btn btn-light" %>
         <%= link_to "ログイン", new_member_session_path, class:"btn btn-light" %>
-        <%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post %>
+        <%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class:"btn btn-light" %>
 
       <% end %>
       </nav>

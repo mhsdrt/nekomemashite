@@ -1,4 +1,6 @@
 class Public::MembersController < ApplicationController
+  before_action :set_member, only: [:likes]
+  
   def show
     @member = current_member
     @cats = @member.cats
@@ -12,10 +14,11 @@ class Public::MembersController < ApplicationController
     @like_posts = Post.find(likes)
   end
   
+  
   private
   
   def member_params
-    params.require(:member).permit(:name)
+    params.require(:member).permit(:name, :id)
   end
   
   def set_member
