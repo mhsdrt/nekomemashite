@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
+    
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,11 +14,20 @@
   <body>
     <header>
         <div class="logo_area", align="center">
-          <a class="navbar-brand" href="/"><%= image_tag 'header.jpg', class: "logo" %></a>
+          <% if admin_signed_in? %>
+            <a class="navbar-brand" href="/admin"><%= image_tag 'header.jpg', class: "logo" %></a>
+            <% else %>
+            <a class="navbar-brand" href="/"><%= image_tag 'header.jpg', class: "logo" %></a>
+          <% end %>
+          
+          <% if member_signed_in? %>
+          <p>ようこそ、<%= current_member.name %>さん！</p>
+          <% else %>
+          <% end %>
         </div>
       <nav class="navbar navbar-default shadow-sm">
       <% if member_signed_in? %>
-        <%= link_to "About", about_path, class:"btn btn-light" %>
+        <%= link_to "トップページ", root_path, class:"btn btn-light" %>
         <%= link_to "ネコ活を投稿する", new_public_post_path, class:"btn btn-light" %>
         <%= link_to "ネコを登録する", new_public_cat_path, class:"btn btn-light" %>
         <%= link_to "マイページ", members_my_page_path, class:"btn btn-light" %>
@@ -46,4 +56,10 @@
 
     <%= yield %>
   </body>
+  
+  <footer class="footer mt-4 py-3 bg-light">
+    <div class="container text-center">
+      <span class="text-muted">2023 nekomemashite  &copy; All Right Reserved.</span>
+    </div>
+ </footer>
 </html>

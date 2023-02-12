@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_member!
   def new
     @post = Post.new
     @cat = current_member.cats.all
@@ -13,7 +14,7 @@ class Public::PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc)
   end
   
   def show

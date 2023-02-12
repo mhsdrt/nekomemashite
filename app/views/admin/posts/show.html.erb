@@ -37,11 +37,11 @@
     <tbody>
       <tr>
         <td><%= comment.member.name %></td>
-        <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+        <td><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %></td>
         <td><%= comment.comment %></td>
         <td><%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete %></td>
       </tr>
     </tbody>
   </table>
   <% end %>
-        <%= link_to "戻る", :back %>
+        <%= link_to "戻る", action: :index %>

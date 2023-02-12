@@ -44,7 +44,9 @@ Rails.application.routes.draw do
           get "/members/my_page" => "public/members#show"
           root to: "public/homes#top"
           get '/search', to: 'public/searches#search'
-          
+          get "/members/quit" => "public/members#quit"
+          get "/members/withdraw" => "public/members#withdraw"
+          post "/members/withdraw" => "public/members#withdraw"
           
           devise_scope :member do
           post 'members/guest_sign_in' => 'public/sessions#guest_sign_in'

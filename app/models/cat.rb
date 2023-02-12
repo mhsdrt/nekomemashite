@@ -1,7 +1,7 @@
 class Cat < ApplicationRecord
   
   belongs_to :member
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_one_attached :cat_image
   
 

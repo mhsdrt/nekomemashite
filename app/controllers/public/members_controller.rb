@@ -4,6 +4,10 @@ class Public::MembersController < ApplicationController
   def show
     @member = current_member
     @cats = @member.cats
+    @posts = @member.posts
+  end
+  
+  def index
   end
   
   def destroy
@@ -14,6 +18,11 @@ class Public::MembersController < ApplicationController
     @like_posts = Post.find(likes)
   end
   
+  def withdraw
+    current_member.update(is_deleted: true,)
+    reset_session
+    redirect_to root_path
+  end
   
   private
   

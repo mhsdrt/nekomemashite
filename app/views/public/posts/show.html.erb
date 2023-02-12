@@ -1,13 +1,12 @@
-
+<div class="container text-center takasa">
+  <div class="wd-text">
   <div>
     <p>投稿者:<%= @post.member.name %></p>
     <p>ネコ:<%= @post.cat.name %></p>
-    <%= image_tag @post.get_post_image(200,200) %>
+    <%= image_tag @post.get_post_image(400,400) %>
     <p><%= @post.content %></p>
     <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
-    <% if @post.member == current_member %>
-    <%= link_to "削除", public_post_path(@post), method: :delete %>
-  <% end %>
+
   
     <!--いいねの実装 -->
 <div id = "like_<%= @post.id %>">
@@ -24,7 +23,7 @@
     <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
     
     <% if comment.member == current_member %>
-      <%= link_to "削除", public_post_comment_path(comment.post, comment), method: :delete %>
+      <%= link_to "削除", public_post_comment_path(comment.post, comment), method: :delete %><br>
     <% end %>
     
 
@@ -40,4 +39,9 @@
   <% end %>
 </div>
 
+    <% if @post.member == current_member %>
 <td><%= link_to"Destroy",public_post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
+  <% end %>
+
+</div>
+</div>

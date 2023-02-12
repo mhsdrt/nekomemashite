@@ -30,6 +30,8 @@ class Public::SessionsController < Devise::SessionsController
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
   
+    before_action :member_state, only: [:create]
+  
   protected
 
   def member_state #論理削除された退会済みユーザーがログインできない

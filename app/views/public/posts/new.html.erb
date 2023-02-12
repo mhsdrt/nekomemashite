@@ -1,4 +1,5 @@
-新規投稿画面
+<div class="container text-center takasa">
+  <div class="wd-text">
 
 <h1>ネコ活投稿フォーム</h1>
   <%= form_with model: @post,url: public_posts_path do |f| %>
@@ -7,7 +8,9 @@
       <%= f.file_field :post_image, accept: "image/*" %>
     <h4>投稿内容</h4>
       <%= f.text_area :content %>
-    <label>タグ</label>
-      <%= f.text_field :tag %>
-    <%= f.submit '登録' %>
+    <h4>タグ</h4>
+      <%= f.text_field :tag %><br>
+    <%= f.submit '登録',class:"btn  btn-outline-success" %>
   <% end %>
+  </div>
+  </div>
