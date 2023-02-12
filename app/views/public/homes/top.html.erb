@@ -1,21 +1,11 @@
 <div class="container text-center takasa">
   <div class="wd-text">
-新着ネコ活一覧
-
-<% @posts.each do |post| %>
-  <div>
-    <p>投稿者:<%= post.member.name %></p>
-    <p>ネコ:<%= post.cat.name %></p>
-    <%= link_to public_post_path(post.id) do %>
-    <%= image_tag post.get_post_image(200,200) %>
-    <% end %>
-    <p><%= post.content.truncate(24, separator: ' ') %></p>
-       <p><%= link_to "#{post.comments.count} コメント", public_post_path(post.id) %></p>
-
-  </div>
-
-<% end %>
-
-    <%= paginate @posts %>
+<p>ようこそ！</p>
+<p>このサイトはネコの飼い主さんが</p>
+<p>ネコちゃんたちの様子をネコ活として投稿し、</p>
+<p>飼い主さん同士や、ネコが好きな人との交流ができるサイトです！</p>
+<p>新規登録を行い、早速ネコ活の投稿や</p>
+<p>好きなネコ活にいいねやコメントを残してみよう！</p>
+<p></p>
 </div>
 </div>

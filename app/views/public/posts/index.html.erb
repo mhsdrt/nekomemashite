@@ -1,3 +1,5 @@
+<div class="container text-center takasa">
+  <div class="wd-text">
 ネコ活一覧
 
 <% @posts.each do |post| %>
@@ -7,8 +9,13 @@
     <%= link_to public_post_path(post.id) do %>
     <%= image_tag post.get_post_image(200,200) %>
     <% end %>
-    <p><%= post.content %></p>
+    <p><%= post.content.truncate(24, separator: ' ') %></p>
        <p><%= link_to "#{post.comments.count} コメント", public_post_path(post.id) %></p>
 
   </div>
+
 <% end %>
+
+    <%= paginate @posts %>
+</div>
+</div>
