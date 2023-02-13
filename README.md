@@ -28,7 +28,11 @@
 - 猫に癒しを求めたいとき
 
 ## 設計書
-
+- アプリケーション設計書：https://docs.google.com/spreadsheets/d/1qjA2saYesvO9N0ihsQL3YNn_RtdWx4xV9eM1ii21Ke4/edit?usp=sharing
+- UIflows：https://drive.google.com/file/d/1wNPYnhpS7AiBMm86rZHLL_BzOylgFyuP/view?usp=sharing
+- ワイヤーフレーム（ユーザー側）：https://drive.google.com/file/d/1WKbj98j7jvQrXLMXX0RJAh_6OAuTmlOn/view?usp=sharing
+- ワイヤーフレーム（管理者側）：https://drive.google.com/file/d/1Ygrt-16AuKOHnmz0fluPtTh-N8DS6djN/view?usp=sharing
+- テーブル定義書：https://docs.google.com/spreadsheets/d/1h9yZ3VIPYV5UZdnbb3uC8GCw_QVo4AXvrAE99mjYrcc/edit?usp=sharing
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -38,4 +42,4 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 検討中です
+- ヘッダー画像、Noimage画像を知人の方が作成してくださいました。
