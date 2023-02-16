@@ -4,7 +4,13 @@ class Cat < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_one_attached :cat_image
   
-
+  validates :name, presence: true
+  validates :sex, presence: true
+  validates :age, presence: true
+  validates :cattype, presence: true
+  validates :character, presence: true
+  validates :profile, presence: true
+  
   
   def get_cat_image(width, height)
   unless cat_image.attached?

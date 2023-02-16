@@ -6,9 +6,11 @@ class Public::CatsController < ApplicationController
   def create
     @cat = Cat.new(cat_params)
     @cat.member_id = current_member.id
-    @cat.save
+    if@cat.save
     redirect_to  public_cats_path
-  
+    else
+    render :new
+    end
   end
   
   def index

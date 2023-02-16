@@ -7,6 +7,8 @@ class Post < ApplicationRecord
     has_many :liked_members, through: :likes, source: :member
     has_one_attached :post_image
 
+    validates :cat_id, presence: true
+    validates :post_image, presence: true
     
     
       def get_post_image(width, height)
