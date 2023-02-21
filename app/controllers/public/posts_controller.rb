@@ -2,7 +2,7 @@ class Public::PostsController < ApplicationController
   before_action :authenticate_member!
   def new
     @post = Post.new
-    @cat = current_member.cats.all
+
   end
   
   def create
