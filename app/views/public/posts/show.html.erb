@@ -22,16 +22,23 @@
     <%= comment.member.name %>
     <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
     
-    <% if comment.member == current_member %>
-      <%= link_to "削除", public_post_comment_path(comment.post, comment), method: :delete %><br>
-    <% end %>
-    
-
-    
+      <% if comment.member == current_member %>
+        <%= link_to "削除", public_post_comment_path(comment.post, comment), method: :delete %><br>
+      <% end %>
     <% end %>
   
 </div>
-
+  <% if @error_comment.present? %>
+    <div id="error_explanation">
+      <h2><%= @error_comment.errors.count %>件のエラーが発生しました。</h2>
+      <ul>
+        <% @error_comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
 <div>
   <%= form_with url: public_post_comments_path(@post) do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
