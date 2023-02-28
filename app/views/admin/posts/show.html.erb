@@ -1,3 +1,4 @@
+
   <table align="center" border="1">
     <thead>
       <tr>
@@ -18,7 +19,7 @@
         <td><%= @post.tag %></td>
         <td><%= @post.likes.count %></td>
         <td width="500"><%= @post.content %></td>
-        <td><%= link_to"Destroy",admin_post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td></td>
+        <td><%= link_to"削除",admin_post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td></td>
       </tr>
     </tbody>
   </table>
@@ -39,7 +40,7 @@
         <td><%= comment.member.name %></td>
         <td><%= comment.created_at.strftime('%Y/%m/%d %H:%M') %></td>
         <td><%= comment.comment %></td>
-        <td><%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete %></td>
+        <td><%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' }  %></td>
       </tr>
     </tbody>
   </table>
