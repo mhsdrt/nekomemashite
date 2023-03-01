@@ -24,7 +24,7 @@
     </tbody>
   </table>
   
-    <p>コメント件数：<%= @post.comments.count %></p>
+    <div align="center" ><p>コメント件数：<%= @post.comments.count %></p></div>
           <% @post.comments.each do |comment| %>
     <table align="center" border="1">
     <thead>
@@ -45,4 +45,4 @@
     </tbody>
   </table>
   <% end %>
-        <%= link_to "戻る", action: :index %>
+        <div align="center"><%= link_to "戻る", action: :index %></div>
