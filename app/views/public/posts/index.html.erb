@@ -1,9 +1,9 @@
-<div class="container text-center takasa">
-  <div class="wd-text">
-ネコ活一覧
 
+ネコ活一覧
+<div class="container">
+  <div class="row">
 <% @posts.each do |post| %>
-  <div>
+    <span class="border"><div class="col-12">
     <p>投稿者:<%= post.member.name %></p>
     <%= link_to public_cat_path(post.cat_id) do %>
       <p>ネコ:<%= post.cat.name %></p>
@@ -15,9 +15,7 @@
        <p><%= link_to "#{post.comments.count} コメント", public_post_path(post.id) %></p>
 
   </div>
-
+  </span>
 <% end %>
-
-
 </div>
 </div>
