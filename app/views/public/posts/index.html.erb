@@ -1,9 +1,9 @@
 
 ネコ活一覧
-<div class="container">
+<div class="container-fluid">
   <div class="row">
 <% @posts.each do |post| %>
-    <span class="border"><div class="col-12">
+    <span class="border"><div class="col-md-12">
     <p>投稿者:<%= post.member.name %></p>
     <%= link_to public_cat_path(post.cat_id) do %>
       <p>ネコ:<%= post.cat.name %></p>
