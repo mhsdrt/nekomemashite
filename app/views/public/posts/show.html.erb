@@ -1,6 +1,6 @@
 <div class="container text-center takasa">
   <div class="wd-text">
-  <div>
+
     <p>投稿者:<%= @post.member.name %></p>
     <p>ネコ:<%= @post.cat.name %></p>
     <%= image_tag @post.get_post_image(400,400) %>
@@ -13,7 +13,7 @@
   <%= render partial: "public/likes/like", locals: { post: @post } %>
 </div>
 
-  </div>
+
   
   <!-- コメントの実装 -->
   <div>
