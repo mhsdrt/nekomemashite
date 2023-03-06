@@ -2,7 +2,9 @@
   <div class="wd-text">
 
     <p>投稿者:<%= @post.member.name %></p>
-    <p>ネコ:<%= @post.cat.name %></p>
+        <%= link_to public_cat_path(@post.cat_id) do %>
+      <p>ネコ:<%= @post.cat.name %></p>
+    <% end %>
     <%= image_tag @post.get_post_image(400,400) %>
     <p><%= @post.content %></p>
     <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
