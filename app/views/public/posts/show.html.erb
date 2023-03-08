@@ -1,10 +1,8 @@
 <div class="container text-center takasa">
   <div class="wd-text">
-
+  <div>
     <p>投稿者:<%= @post.member.name %></p>
-        <%= link_to public_cat_path(@post.cat_id) do %>
-      <p>ネコ:<%= @post.cat.name %></p>
-    <% end %>
+    <p>ネコ:<%= @post.cat.name %></p>
     <%= image_tag @post.get_post_image(400,400) %>
     <p><%= @post.content %></p>
     <p>投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></p>
@@ -15,7 +13,7 @@
   <%= render partial: "public/likes/like", locals: { post: @post } %>
 </div>
 
-
+  </div>
   
   <!-- コメントの実装 -->
   <div>
