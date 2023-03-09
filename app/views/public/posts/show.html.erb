@@ -40,14 +40,14 @@
   <% end %>
   
 <div>
-  <%= form_with url: public_post_comments_path(@post) do |f| %>
+  <%= form_with url: post_comments_path(@post) do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
   <% end %>
 </div>
 
     <% if @post.member == current_member %>
-<td><%= link_to"Destroy",public_post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
+<td><%= link_to"Destroy",post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
   <% end %>
 
 </div>

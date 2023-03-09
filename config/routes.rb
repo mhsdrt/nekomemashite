@@ -25,7 +25,7 @@ Rails.application.routes.draw do
           end
         end
         
-    namespace :public do
+    scope module: :public do
           resources :homes
           resources :cats, only: [:new, :create, :index, :show, :edit, :update, :destroy]
           resources :comment_notifications

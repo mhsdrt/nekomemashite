@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
   @post = Post.new(post_params)
     @post.member_id = current_member.id
     if@post.save
-    redirect_to  public_posts_path
+    redirect_to  posts_path
     else
     render :new
     end

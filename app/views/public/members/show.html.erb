@@ -1,13 +1,13 @@
 <div class="container takasa">
   <div class="wd-text">
 <legend>マイページ</legend>
-<%= link_to "いいねした投稿一覧",  likes_public_member_path(@member) %>
+<%= link_to "いいねした投稿一覧",  likes_member_path(@member) %>
 
 <p>登録ネコ</p>
 <% @cats.each do |cat| %>
 <div>
   <%= cat.name %>(<%= cat.sex %>)
-    <%= link_to public_cat_path(cat.id) do %>
+    <%= link_to cat_path(cat.id) do %>
     <%= image_tag cat.get_cat_image(100,100) %>
     <% end %>
 </div>
@@ -16,14 +16,14 @@
 <p>投稿履歴</p>
 <% @posts.each do |post| %>
   <div>
-    <%= link_to public_post_path(post.id) do %>
+    <%= link_to post_path(post.id) do %>
     <%= image_tag post.get_post_image(200,200) %>
     <% end %>
     <%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
     ネコ:<%= post.cat.name %>
     <%= post.content %>
-       <p><%= link_to "#{post.comments.count} コメント", public_post_path(post.id) %>
-       <%= link_to "#{post.likes.count} いいね", public_post_path(post.id) %></p>
+       <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
+       <%= link_to "#{post.likes.count} いいね", post_path(post.id) %></p>
 
   </div>
 <% end %>

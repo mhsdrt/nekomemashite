@@ -10,7 +10,7 @@
       投稿者：<%= record.member.name %><br>
       タグ：<%= record.tag %><br>
       <%= image_tag record.get_post_image(200,200) %><br>
-        <%= link_to public_posts_path do %>
+        <%= link_to posts_path do %>
           <%= record.content %>
         <% end %><br>
     <% else %>

@@ -7,7 +7,7 @@ class Public::CatsController < ApplicationController
     @cat = Cat.new(cat_params)
     @cat.member_id = current_member.id
     if@cat.save
-    redirect_to  public_cats_path
+    redirect_to  cats_path
     else
     render :new
     end

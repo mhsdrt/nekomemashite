@@ -4,16 +4,16 @@ class Public::CommentsController < ApplicationController
    comment = current_member.comments.new(comment_params)
    #comment.post_id = post.id
    if comment.save
-    redirect_to public_post_path(comment.post)
+    redirect_to post_path(comment.post)
    else
     @error_comment = comment
-     redirect_to public_post_path(comment.post)
+     redirect_to post_path(comment.post)
    end
  end
  
  def destroy
    Comment.find(params[:id]).destroy
-   redirect_to public_post_path(params[:post_id])
+   redirect_to post_path(params[:post_id])
  end
  
  private

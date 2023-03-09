@@ -10,5 +10,5 @@
   <p>プロフィール：<%= @cat.profile %></p>
 </div>
   <% if @cat.member == current_member %>
-    <td><%= link_to"Destroy",public_cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
+    <td><%= link_to"Destroy",cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
   <% end %>

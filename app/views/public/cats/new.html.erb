@@ -11,7 +11,7 @@
   </ul>
 <% end %>
 
-  <%= form_with model: @cat,url: public_cats_path do |f| %>
+  <%= form_with model: @cat,url: cats_path do |f| %>
     <h4>ネコの画像</h4>
       <%= f.file_field :cat_image, accept: "image/*" %>
     <h4>お名前</h4>

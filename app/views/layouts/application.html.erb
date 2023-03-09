@@ -28,9 +28,9 @@
       <nav class="navbar navbar-default shadow-sm">
       <% if member_signed_in? %>
         <%= link_to "トップページ", root_path, class:"btn btn-light" %>
-        <%= link_to 'ネコ活一覧', public_posts_path, class:"btn btn-light" %>
-        <%= link_to "ネコ活を投稿する", new_public_post_path, class:"btn btn-light" %>
-        <%= link_to "ネコを登録する", new_public_cat_path, class:"btn btn-light" %>
+        <%= link_to 'ネコ活一覧', posts_path, class:"btn btn-light" %>
+        <%= link_to "ネコ活を投稿する", new_post_path, class:"btn btn-light" %>
+        <%= link_to "ネコを登録する", new_cat_path, class:"btn btn-light" %>
         <%= link_to "マイページ", members_my_page_path, class:"btn btn-light" %>
         <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class:"btn btn-light" %>
         

@@ -11,7 +11,7 @@
   </ul>
 <% end %>
 
-  <%= form_with model: @post,url: public_posts_path do |f| %>
+  <%= form_with model: @post,url: posts_path do |f| %>
     <%= f.collection_select :cat_id, current_member.cats.all, :id, :name, include_blank: "ネコを選択して下さい" %>
     <h4>画像</h4>
       <%= f.file_field :post_image, accept: "image/*" %>

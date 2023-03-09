@@ -1,5 +1,5 @@
-<%= link_to image_tag( post.get_post_image(200,200) ), public_post_path(post.id) %>
-<%= link_to post.member.name, public_member_path(post.member_id) %>
+<%= link_to image_tag( post.get_post_image(200,200) ), post_path(post.id) %>
+<%= link_to post.member.name, member_path(post.member_id) %>
 <i class="fa fa-heart unlike-btn"></i>
 <%= post.likes.length %>
-<%= link_to post.content, public_post_path(post.id) %>
+<%= link_to post.content, post_path(post.id) %>
