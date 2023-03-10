@@ -1,8 +1,10 @@
+<div class="container-fluid">
 <div class="row">
+<div class="col-md-8 offset-md-1"> 
 
 <h2>会員情報編集</h2>
 
-<div class="col-md-8 offset-md-1"> 
+
 
 <%= form_with model: @member, url: admin_member_path(@member.id) do |f| %>
   
@@ -36,3 +38,6 @@
 <% end %>
   
   <% end %>
+  </div>
+  </div>
+  </div>
