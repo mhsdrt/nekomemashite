@@ -1,4 +1,5 @@
 class Admin::MembersController < ApplicationController
+  
   def show
     @member = Member.find(params[:id])
     @cats = @member.cats
@@ -25,6 +26,6 @@ class Admin::MembersController < ApplicationController
   private
     
   def member_params
-    params.require(:member).permit(:email, :name, :is_deleted)
+    params.require(:member).permit(:id, :email, :name, :is_deleted)
   end
 end
