@@ -25,7 +25,7 @@ class Public::CatsController < ApplicationController
   def destroy
     @cat = Cat.find(params[:id])
     @cat.destroy
-    redirect_to '/public/cats'
+    redirect_to '/cats'
   end
 
   private

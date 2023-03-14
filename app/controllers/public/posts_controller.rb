@@ -29,7 +29,7 @@ class Public::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to '/public/posts'
+    redirect_to '/posts'
   end
   
 
