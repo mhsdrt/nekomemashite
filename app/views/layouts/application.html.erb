@@ -5,62 +5,59 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
   <body>
     <header>
-        <div class="logo_area", align="center">
-          <% if admin_signed_in? %>
-            <a class="navbar-brand" href="/admin"><%= image_tag 'header.jpg', class: "logo" %></a>
-            <% else %>
-            <a class="navbar-brand" href="/"><%= image_tag 'header.jpg', class: "logo" %></a>
-          <% end %>
+      <div class="logo_area", align="center">
+        <% if admin_signed_in? %>
+          <a class="navbar-brand" href="/admin"><%= image_tag 'header.jpg', class: "logo" %></a>
+          <% else %>
+          <a class="navbar-brand" href="/"><%= image_tag 'header.jpg', class: "logo" %></a>
+        <% end %>
           
-          <% if member_signed_in? %>
+        <% if member_signed_in? %>
           <p>ようこそ、<%= current_member.name %>さん！</p>
           <% else %>
-          <% end %>
-        </div>
+        <% end %>
+      </div>
       <nav class="navbar navbar-default shadow-sm">
-      <% if member_signed_in? %>
-        <%= link_to "トップページ", root_path, class:"btn btn-light" %>
-        <%= link_to 'ネコ活一覧', posts_path, class:"btn btn-light" %>
-        <%= link_to "ネコ活を投稿する", new_post_path, class:"btn btn-light" %>
-        <%= link_to "ネコを登録する", new_cat_path, class:"btn btn-light" %>
-        <%= link_to "マイページ", members_my_page_path, class:"btn btn-light" %>
-        <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class:"btn btn-light" %>
+        <% if member_signed_in? %>
+          <%= link_to "トップページ", root_path, class:"btn btn-light" %>
+          <%= link_to 'ネコ活一覧', posts_path, class:"btn btn-light" %>
+          <%= link_to "ネコ活を投稿する", new_post_path, class:"btn btn-light" %>
+          <%= link_to "ネコを登録する", new_cat_path, class:"btn btn-light" %>
+          <%= link_to "マイページ", members_my_page_path, class:"btn btn-light" %>
+          <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class:"btn btn-light" %>
         
-        <div class="d-flex justify-content-center mb-2">
-        <%= render 'public/searches/form' %>
-        </div>
+          <div class="d-flex justify-content-center mb-2">
+            <%= render 'public/searches/form' %>
+          </div>
         
-      <% elsif admin_signed_in?%>
-      <%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-light" %>
-      <%= link_to 'ネコ活一覧', admin_posts_path, class:"btn btn-light" %>
-      <%= link_to 'ユーザー一覧', admin_members_path, class:"btn btn-light" %>
+          <% elsif admin_signed_in?%>
+          <%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, class:"btn btn-light" %>
+          <%= link_to 'ネコ活一覧', admin_posts_path, class:"btn btn-light" %>
+          <%= link_to 'ユーザー一覧', admin_members_path, class:"btn btn-light" %>
       
-      <% else %>
-        <%= link_to "About", about_path, class:"btn btn-light" %>
-        <%= link_to "新規登録", new_member_registration_path, class:"btn btn-light" %>
-        <%= link_to "ログイン", new_member_session_path, class:"btn btn-light" %>
-        <%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class:"btn btn-light" %>
-
-      <% end %>
+          <% else %>
+          <%= link_to "About", about_path, class:"btn btn-light" %>
+          <%= link_to "新規登録", new_member_registration_path, class:"btn btn-light" %>
+          <%= link_to "ログイン", new_member_session_path, class:"btn btn-light" %>
+          <%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class:"btn btn-light" %>
+        <% end %>
       </nav>
-
-      
     </header>
 
     <%= yield %>
+  
   </body>
   
   <footer class="footer mt-4 py-3 bg-light">
     <div class="container text-center">
       <span class="text-muted">2023 nekomemashite  &copy; All Right Reserved.</span>
     </div>
- </footer>
+  </footer>
 </html>

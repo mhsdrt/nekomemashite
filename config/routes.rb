@@ -36,8 +36,8 @@ Rails.application.routes.draw do
                               end
                             end
           resources :posts, only: [:new, :create, :index, :show, :destroy] do
-            resource :likes, only: [:create, :destroy]
-            resources :comments, only: [:create, :destroy]
+          resource :likes, only: [:create, :destroy]
+          resources :comments, only: [:create, :destroy]
           end
         end
           get "/about" => "public/homes#about", as: "about"
