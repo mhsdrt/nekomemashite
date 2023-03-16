@@ -9,6 +9,6 @@
   <p>性格：<%= @cat.character %></p>
   <p>プロフィール：<%= @cat.profile %></p>
 </div>
-  <% if @cat.member == current_member %>
-    <td><%= link_to"Destroy",cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
-  <% end %>
+<% if @cat.member == current_member %>
+  <td><%= link_to"Destroy",cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
+<% end %>

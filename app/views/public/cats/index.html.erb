@@ -1,10 +1,10 @@
 登録ネコ一覧
 
 <% @cats.each do |cat| %>
-<div>
-  <p><%= cat.name %>(<%= cat.sex %>)</p>
+  <div>
+    <p><%= cat.name %>(<%= cat.sex %>)</p>
     <%= link_to cat_path(cat.id) do %>
-    <%= image_tag cat.get_cat_image(100,100) %>
+      <%= image_tag cat.get_cat_image(100,100) %>
     <% end %>
-</div>
+  </div>
 <% end %>

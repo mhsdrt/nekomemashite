@@ -1,84 +1,83 @@
 <div class="container">
-ユーザー詳細
-<div class="row">
-  <div class="col-md-5">
-  <table border="1">
-    <thead>
-      <tr>
-        <th>ステータス</th>
-        <th>ID</th>
-        <th>ユーザー名</th>
-        <th>メールアドレス</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%if @member.is_deleted == true %>
-            退会済み
-            <% else %>
-            有効会員
+  ユーザー詳細
+  <div class="row">
+    <div class="col-md-5">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>ステータス</th>
+            <th>ID</th>
+            <th>ユーザー名</th>
+            <th>メールアドレス</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%if @member.is_deleted == true %>
+              退会済み
+              <% else %>
+              有効会員
             <% end %></td>
-        <td><%= @member.id %></td>
-        <td><%= @member.name %></td>
-        <td><%= @member.email %></td>
-        <td><%= link_to "編集する", edit_admin_member_path, class:"btn btn-primary" %></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+            <td><%= @member.id %></td>
+            <td><%= @member.name %></td>
+            <td><%= @member.email %></td>
+            <td><%= link_to "編集する", edit_admin_member_path, class:"btn btn-primary" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-<div class="col-md-2">  
-<table border="1">
-  <thead>
-    <tr>
-      <th>登録ネコ <%= @member.cats.count %> 匹</th>
-      <th>ID</th>
-      <th>名前</th>
-    </tr>
-  </thead>
-  <% @cats.each do |cat| %>
-  <tbody>
-    <tr>
-      <td><%= image_tag cat.get_cat_image(100,100) %></td>
-      <td><%= cat.id %></td>
-      <td><%= link_to admin_cat_path (cat.id) do %>
-          <%= cat.name %>
-          <% end %></td>
-    </tr>
-  </tbody>
-  <% end %>
-</table>
-</div>
-</div>
-
-<div class="row">
-    <div class="col-md-8">
-  <table border="1">
-    <thead>
-      <tr>
-        <th>投稿ネコ活 <%= @member.posts.count %> 件</th>
-        <th>ID</th>
-        <th>ネコ</th>
-        <th>タグ</th>
-        <th>本文</th>
-      </tr>
-    </thead>
-    <% @posts.each do |post| %>
-    <tbody>
-      <tr>
-        <td><%= image_tag post.get_post_image(100,100) %></td>
-        <td><%= link_to admin_post_path (post.id) do %>
-            <%= post.id %>
-            <% end %></td>
-        <td><%= post.cat.name %></td>
-        <td><%= post.tag %></td>
-        <td><%= post.content.truncate(24, omission: '...') %></td><!-- truncate(文字数,オプション)←長い文字を省略するメソッド:参照https://qiita.com/ishidamakot/items/2e74d980b3a338e4c784　--> 
-      </tr>
-    </tbody>
-    <% end %>
-  </table>
+    <div class="col-md-2">  
+      <table border="1">
+        <thead>
+          <tr>
+            <th>登録ネコ <%= @member.cats.count %> 匹</th>
+            <th>ID</th>
+            <th>名前</th>
+          </tr>
+        </thead>
+        <% @cats.each do |cat| %>
+          <tbody>
+            <tr>
+              <td><%= image_tag cat.get_cat_image(100,100) %></td>
+              <td><%= cat.id %></td>
+              <td><%= link_to admin_cat_path (cat.id) do %>
+                <%= cat.name %>
+              <% end %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
   </div>
 
-</div>
+  <div class="row">
+    <div class="col-md-8">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>投稿ネコ活 <%= @member.posts.count %> 件</th>
+            <th>ID</th>
+            <th>ネコ</th>
+            <th>タグ</th>
+            <th>本文</th>
+          </tr>
+        </thead>
+        <% @posts.each do |post| %>
+          <tbody>
+            <tr>
+              <td><%= image_tag post.get_post_image(100,100) %></td>
+              <td><%= link_to admin_post_path (post.id) do %>
+                <%= post.id %>
+              <% end %></td>
+              <td><%= post.cat.name %></td>
+              <td><%= post.tag %></td>
+              <td><%= post.content.truncate(24, omission: '...') %></td><!-- truncate(文字数,オプション)←長い文字を省略するメソッド:参照https://qiita.com/ishidamakot/items/2e74d980b3a338e4c784　--> 
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
