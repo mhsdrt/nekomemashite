@@ -1,57 +1,57 @@
 <div class="container text-center takasa">
   <div class="wd-text">
-  <div>
-    <%= image_tag @post.get_post_image(400,400) %>
-    <p><%= @post.content %></p>
-    <span style="font-size:10px; color:gray;">投稿者:<%= @post.member.name %></span>
-    <span style="font-size:10px; color:gray;">ネコ：<%= @post.cat.name %></span>
-    <span style="font-size:10px; color:gray;">投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></span>
+    <div>
+      <%= image_tag @post.get_post_image(400,400) %>
+      <p><%= @post.content %></p>
+      <span style="font-size:10px; color:gray;">投稿者:<%= @post.member.name %></span>
+      <span style="font-size:10px; color:gray;">ネコ：<%= @post.cat.name %></span>
+      <span style="font-size:10px; color:gray;">投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></span>
 
   
     <!--いいねの実装 -->
-<div id = "like_<%= @post.id %>">
-  <%= render partial: "public/likes/like", locals: { post: @post } %>
-</div>
+      <div id = "like_<%= @post.id %>">
+        <%= render partial: "public/likes/like", locals: { post: @post } %>
+      </div>
 
-  </div>
+    </div>
   
   <!-- コメントの実装 -->
-  <div>
-  <span style="font-size:10px; color:gray;">コメント件数：<%= @post.comments.count %></span><br>
-  <% @post.comments.each do |comment| %>
+    <div>
+      <span style="font-size:10px; color:gray;">コメント件数：<%= @post.comments.count %></span><br>
+      <% @post.comments.each do |comment| %>
         <%= link_to member_path(comment.member_id) do %>
-        <%= comment.member.name %>
+          <%= comment.member.name %>
         <% end %>
-    <span style="font-size:10px; color:gray;"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M:%S') %></span>
-    <%= comment.comment %>
+        <span style="font-size:10px; color:gray;"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M:%S') %></span>
+        <%= comment.comment %>
     
-      <% if comment.member == current_member %>
-        <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' }  %><br>
+        <% if comment.member == current_member %>
+          <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' }  %><br>
+        <% end %>
       <% end %>
+  
+    </div>
+    <% if @error_comment.present? %>
+      <div id="error_explanation">
+        <h2><%= @error_comment.errors.count %>件のエラーが発生しました。</h2>
+        <ul>
+          <% @error_comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
   
-</div>
-  <% if @error_comment.present? %>
-    <div id="error_explanation">
-      <h2><%= @error_comment.errors.count %>件のエラーが発生しました。</h2>
-      <ul>
-        <% @error_comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div>
+      <%= form_with url: post_comments_path(@post) do |f| %>
+        <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
+       <button type="submit" class="btn btn-primary">送信</button>
+      <% end %>
     </div>
-  <% end %>
-  
-<div>
-  <%= form_with url: post_comments_path(@post) do |f| %>
-    <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %>
-     <button type="submit" class="btn btn-primary">送信</button>
-  <% end %>
-</div>
 
     <% if @post.member == current_member %>
-<td><%= link_to"Destroy",post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
-  <% end %>
+      <td><%= link_to"Destroy",post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
+    <% end %>
 
-</div>
+  </div>
 </div>
