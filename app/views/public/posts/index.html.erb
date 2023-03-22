@@ -2,7 +2,8 @@
 
 <div class="container px-5 px-sm-0">
   <div class="row">
-ネコ活一覧      
+<span style="font-size:20px; color:black;">ネコ活一覧</span> 
+<div class="col-md-6"></div>
         <div class="col-md-12">
           
     <% @posts.each do |post| %>
@@ -17,6 +18,7 @@
           <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
           <% end %>
         </div>
+        <div class="col-md-6"></div>
       
     
   </div>
