@@ -26,10 +26,27 @@
       </div>
       <nav class="navbar navbar-default shadow-sm">
         <% if member_signed_in? %>
-          <%= link_to "トップページ", root_path, class:"btn btn-light" %>
-          <%= link_to 'ネコ活一覧', posts_path, class:"btn btn-light" %>
+
+          <div>
+            <%= link_to "/" ,class: "btn text-black btn-light", method: :get do %>
+            <i class="fas fa-home"></i>トップページ
+            <% end %>
+          </div>
+
+          <div>
+            <%= link_to "/posts" ,class: "btn text-black btn-light", method: :get do %>
+            <i class="fas fa-paw"></i>ネコ活一覧
+            <% end %>
+          </div>
+          
           <%= link_to "ネコ活を投稿する", new_post_path, class:"btn btn-light" %>
-          <%= link_to "ネコを登録する", new_cat_path, class:"btn btn-light" %>
+          
+          <div>
+            <%= link_to "/cats/new" ,class: "btn text-black btn-light", method: :get do %>
+            <i class="fas fa-cat"></i>ネコを登録する
+            <% end %>
+          </div>
+          
           <%= link_to "マイページ", members_my_page_path, class:"btn btn-light" %>
           <%= link_to "ログアウト", destroy_member_session_path, method: :delete, class:"btn btn-light" %>
         
