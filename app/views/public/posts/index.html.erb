@@ -7,6 +7,7 @@
         <div class="col-md-12">
           
     <% @posts.each do |post| %>
+          <span style="font-size:10px; color:gray;"><%= post.created_at.strftime('%Y/%m/%d') %></span>
           <span style="font-size:10px; color:gray;">投稿者:<%= post.member.name %></span>
           <%= link_to cat_path(post.cat_id) do %>
             <span style="font-size:10px;">ネコ:<%= post.cat.name %></span>
