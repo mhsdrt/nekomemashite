@@ -1,8 +1,10 @@
-<div class="container takasa">
+<div class="container px-5 px-sm-0">
+  
   <legend>マイページ</legend>
   <%= link_to "いいねした投稿一覧",  likes_member_path(@member) %>
   <div class="row">
-    <p>登録ネコ</p>
+    
+      <span style="font-size:20px; ">登録ネコ</span>
     <% @cats.each do |cat| %>
       <span class="border">
         <%= cat.name %>(<%= cat.sex %>)
@@ -14,7 +16,7 @@
   </div>
 
 
-  <p>投稿履歴</p>
+  <span style="font-size:20px; ">投稿履歴</span>
   <% @posts.each do |post| %>
     <div>
       <%= link_to post_path(post.id) do %>
