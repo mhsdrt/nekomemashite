@@ -15,9 +15,13 @@
       <h4>画像</h4>
       <%= f.file_field :post_image, accept: "image/*" %>
       <h4>投稿内容</h4>
-      <%= f.text_area :content %>
+      <div class="form-group col-md-4">
+        <%= f.text_area :content, class:"form-control" %>
+      </div>
       <h4>タグ</h4>
-      <%= f.text_field :tag %><br>
+      <div class="form-group col-md-2">
+        <%= f.text_field :tag, class:"form-control"  %><br>
+      </div>
       <%= f.submit '登録',class:"btn  btn-outline-success" %>
     <% end %>
   </div>
