@@ -1,19 +1,8 @@
 <div class="container">
-  
-ネコ詳細
-    <p><%= image_tag @cat.get_cat_image(100,100) %></p>
-    <table class="table">
-
-
-  <tr>
-	  <th>お名前</th>
-	  <th><%= @cat.name %></th>
-  </tr>
-  <tr>
-	  <th>性別</th>
-	  <th><%= @cat.sex %></th>
-  </tr>
-</tbody></table>
+  ネコ詳細
+  <div class="row">
+    <p><%= image_tag @cat.get_cat_image(200,200) %></p>
+  </div>
 
   <span style="font-size:10px; color:gray;">お名前：<%= @cat.name %></span>
   <label>性別：<%= @cat.sex %></label>
@@ -24,5 +13,6 @@
 <% if @cat.member == current_member %>
   <td><%= link_to"Destroy",cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
 <% end %>
-
+  </div>
+  </div>
 </div>
