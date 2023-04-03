@@ -3,16 +3,33 @@
   <div class="row">
     <p><%= image_tag @cat.get_cat_image(200,200) %></p>
   </div>
-
-  <span style="font-size:10px; color:gray;">お名前：<%= @cat.name %></span>
-  <label>性別：<%= @cat.sex %></label>
-  <label>年齢：<%= @cat.age %></label>
-  <label>ネコの種類：<%= @cat.cattype %></label>
-  <label>性格：<%= @cat.character %></label>
-  <label>プロフィール：<%= @cat.profile %></label>
-<% if @cat.member == current_member %>
-  <td><%= link_to"Destroy",cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
-<% end %>
+  <div class="row">
+    <div class="col-1 mb-2">
+      <span style="font-size:10px; ">お名前：<%= @cat.name %></span>
+    </div>
+    <div class="col-2 mb-2">
+      <span style="font-size:10px; ">性別：<%= @cat.sex %></span>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-1 mb-2">
+      <span style="font-size:10px; ">年齢：<%= @cat.age %></span>
+    </div>
+    <div class="col-2 mb-2">
+      <span style="font-size:10px; ">ネコの種類：<%= @cat.cattype %></span>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-2 mb-2">
+      <span style="font-size:10px; ">性格：<%= @cat.character %></span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2 mb-2">
+      <span style="font-size:10px;">プロフィール：<%= @cat.profile %></span>
+    </div>
+  </div>
+  <% if @cat.member == current_member %>
+    <td><%= link_to"Destroy",cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
+  <% end %>
 </div>
