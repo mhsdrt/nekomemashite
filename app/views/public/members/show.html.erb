@@ -1,17 +1,18 @@
 <div class="container px-5 px-sm-0">
   
   <legend>マイページ</legend>
-  <%= link_to "いいねした投稿一覧",  likes_member_path(@member) %>
   <div class="row">
-    
-      <span style="font-size:20px; ">登録ネコ</span>
+  <%= link_to "いいねした投稿一覧",  likes_member_path(@member) %>
+    </div>
+      <div class="row">
+        <span style="font-size:20px; ">登録ネコ</span>
     <% @cats.each do |cat| %>
-      <span class="border">
+    <div class="col-3 mb-2">
         <%= cat.name %>(<%= cat.sex %>)
         <%= link_to cat_path(cat.id) do %>
           <%= image_tag cat.get_cat_image(100,100) %>
         <% end %>
-      </span>
+        </div>
     <% end %>
   </div>
 
