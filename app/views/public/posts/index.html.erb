@@ -1,25 +1,30 @@
-
-
-<div class="container px-5 px-sm-0">
+<div class="container">
+  <span style="font-size:20px; color:black;">ネコ活一覧</span>
   <div class="row">
-<span style="font-size:20px; color:black;">ネコ活一覧</span> 
-<div class="col-md-6"></div>
-        <div class="col-md-12">
+        <div class="col-md-8">
           
     <% @posts.each do |post| %>
-          <span style="font-size:10px; color:gray;"><%= post.created_at.strftime('%Y/%m/%d') %></span>
-          <span style="font-size:10px; color:gray;">投稿者:<%= post.member.name %></span>
-          <%= link_to cat_path(post.cat_id) do %>
-            <span style="font-size:10px;">ネコ:<%= post.cat.name %></span>
-          <% end %><br>
-          <%= link_to post_path(post.id) do %>
-            <%= image_tag post.get_post_image(200,200) %>
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
+                <%= link_to cat_path(post.cat_id) do %>
+          <div class="col-6">
+          <%= image_tag post.cat.get_cat_image(50,50), class:"mt-1 mb-1 rounded-circle"; %>
+          <span style="font-size:20px; color:gray;"><%= post.cat.name %></span>
+        </div>
           <% end %>
-          <span style="font-size:10px;"><%= post.content.truncate(24, separator: ' ') %></span>
-          <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+
+                <%= link_to post_path(post.id) do %>
+            <%= image_tag post.get_post_image(400,400),class:"card-img-top";  %>
+          <% end %>
+          <span style="font-size:10px; color:gray;"><%= post.created_at.strftime('%Y/%m/%d') %> | 投稿者:<%= post.member.name %> | ネコ:
+          <%= link_to cat_path(post.cat_id) do %>
+          <%= post.cat.name %></span>
+          <% end %>
+
+          <span style="font-size:15px;"><%= post.content.truncate(24, separator: ' ') %></span>
+          <span style="font-size:10px;"><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></span>
+          </div>
           <% end %>
         </div>
-        <div class="col-md-6"></div>
       
     
   </div>
