@@ -11,7 +11,8 @@
   </head>
   
   <body>
-    <header>
+    <header class="shadow-sm">
+
       <div class="logo_area", align="center">
         <% if admin_signed_in? %>
           <a class="navbar-brand" href="/admin"><%= image_tag 'header.jpg', class: "logo" %></a>
@@ -24,7 +25,9 @@
           <% else %>
         <% end %>
       </div>
-      <nav class="navbar navbar-default shadow-sm">
+
+            <nav class="navbar navbar-default shadow-sm">
+        <div class="container">
         <% if member_signed_in? %>
 
           <div>
@@ -80,14 +83,14 @@
         <% end %>
       </nav>
     </header>
-
-    <%= yield %>
-  
+    
+    <main class="mb-auto">
+      <%= yield %>
+    </main>
+    <footer class="footer mt-4 py-3 bg-light">
+      <div class="container text-center">
+        <span class="text-muted">2023 nekomemashite  &copy; All Right Reserved.</span>
+      </div>
+    </footer>
   </body>
-  
-  <footer class="footer mt-4 py-3 bg-light">
-    <div class="container text-center">
-      <span class="text-muted">2023 nekomemashite  &copy; All Right Reserved.</span>
-    </div>
-  </footer>
 </html>
