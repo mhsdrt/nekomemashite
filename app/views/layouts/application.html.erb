@@ -26,8 +26,13 @@
         <% end %>
       </div>
 
-            <nav class="navbar navbar-default shadow-sm">
+            <nav class="navbar navbar-default navbar-expand-lg navbar-light">
         <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
         <% if member_signed_in? %>
 
           <div>
@@ -81,6 +86,8 @@
           <%= link_to "ログイン", new_member_session_path, class:"btn btn-light" %>
           <%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class:"btn btn-light" %>
         <% end %>
+                    </ul>
+          </div>
       </nav>
     </header>
     
