@@ -26,14 +26,14 @@
         <% end %>
       </div>
 
-            <nav class="navbar navbar-default navbar-expand-lg navbar-light">
+      <nav class="navbar navbar-default navbar-expand-lg navbar-light">
         <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-        <% if member_signed_in? %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <% if member_signed_in? %>
 
 <!--          <div>
             <%= link_to "/" ,class: "btn text-black btn-light", method: :get do %>
@@ -41,11 +41,11 @@
             <% end %>
           </div>
 -->
-          <div>
-            <%= link_to "/posts" ,class: "btn text-black btn-light", method: :get do %>
-            <i class="fas fa-paw"></i>ネコ活一覧
-            <% end %>
-          </div>
+                <div>
+                  <%= link_to "/posts" ,class: "btn text-black btn-light", method: :get do %>
+                    <i class="fas fa-paw"></i>ネコ活一覧
+                  <% end %>
+                </div>
          
          <div>
             <%= link_to "/posts/new" ,class: "btn text-black btn-light", method: :get do %>
@@ -87,6 +87,7 @@
           <%= link_to 'ゲストログイン', members_guest_sign_in_path, method: :post, class:"btn btn-light" %>
         <% end %>
                     </ul>
+                    </div>
           </div>
       </nav>
     </header>
