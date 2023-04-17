@@ -31,15 +31,14 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse mb-2 justify-content-around" id="navbarNavDropdown">
               
                 <% if member_signed_in? %>
-                <ul class="navbar-nav">
-                <li class="nav-item active">
+                <div>
                   <%= link_to "/posts" ,class: "btn text-black btn-light", method: :get do %>
                     <i class="fas fa-paw"></i>ネコ活一覧
                   <% end %>
-                </li>
+                </div>
          
          <div>
             <%= link_to "/posts/new" ,class: "btn text-black btn-light", method: :get do %>
