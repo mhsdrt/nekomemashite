@@ -1,6 +1,6 @@
 <div class="container">
   <label>ネコ登録フォーム</label>
-  <div class="row">
+  <div class="row card w-50 mt-4 shadow-lg">
     
     <% if @cat.errors.any? %>
       <h6><%= @cat.errors.count %>件のエラーが発生しました</h6>
@@ -46,7 +46,7 @@
         </div>
       </div>
       <%= f.submit '登録', class:"btn  btn-outline-success"%>
-      <form>
+      </form>
     <% end %>
   </div>
 </div>
