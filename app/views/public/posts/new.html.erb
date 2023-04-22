@@ -15,7 +15,7 @@
     <form>
       <div class="form-row">
         <div class="col-3 mb-2">
-          <%= f.collection_select :cat_id, current_member.cats.all, :id, :name, include_blank: "ネコを選択して下さい" %>
+          <p><%= f.collection_select :cat_id, current_member.cats.all, :id, :name, include_blank: "ネコを選択して下さい" %></p>
 
           <label><%= f.file_field :post_image, accept: "image/*" %></label>
         </div>
