@@ -1,13 +1,13 @@
 <div class="container px-5 px-sm-0">
   
   <legend>マイページ</legend>
-  <div class="row">
+  <div class="row card col-2 mb-4">
   <%= link_to "いいねした投稿一覧",  likes_member_path(@member) %>
     </div>
       <div class="row">
         <span style="font-size:20px; ">登録ネコ</span>
     <% @cats.each do |cat| %>
-    <div class="col-3 mb-2">
+    <div class="col-2 mb-2 card w-50 shadow-lg">
         <%= cat.name %>(<%= cat.sex %>)
         <%= link_to cat_path(cat.id) do %>
           <%= image_tag cat.get_cat_image(100,100) %>
@@ -19,7 +19,7 @@
 
   <span style="font-size:20px; ">投稿履歴</span>
   <% @posts.each do |post| %>
-    <div>
+    <div class="col-3card w-50 mx-right mt-4 shadow-lg">
       <%= link_to post_path(post.id) do %>
         <%= image_tag post.get_post_image(200,200) %>
       <% end %>
