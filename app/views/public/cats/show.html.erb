@@ -3,6 +3,12 @@
   <div class="row">
     <p><%= image_tag @cat.get_cat_image(200,200) %></p>
   </div>
+    <div class="row">
+    <div class="col-1 mb-2">
+      <span style="font-size:10px; ">親：<%= @cat.member.name %></span>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-1 mb-2">
       <span style="font-size:10px; ">お名前：<%= @cat.name %></span>
