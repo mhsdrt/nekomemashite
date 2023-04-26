@@ -7,7 +7,7 @@
       <%= link_to cat_path(@post.cat_id) do %>
       <span style="font-size:10px; color:gray;">ネコ：<%= @post.cat.name %></span>
       <% end %>
-      <span style="font-size:10px; color:gray;">投稿日時：<%= @post.created_at.strftime('%Y/%m/%d') %></span>
+      <span style="font-size:10px; color:gray;">投稿日時：<%= @post.created_at.strftime('%Y/%m/%d/%H:%M') %></span>
 
   
     <!--いいねの実装 -->
