@@ -60,7 +60,11 @@
     </div>
   
   </div>
-  <% if @cat.member == current_member %>
-    <td><%= link_to"Destroy",cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
-  <% end %>
+  <div class="row">
+    <div class="col-12 text-center">
+    <% if @cat.member == current_member %>
+      <td><%= link_to"Destroy",cat_path(@cat), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
+    <% end %>
+    </div>
+  </div>
 </div>
