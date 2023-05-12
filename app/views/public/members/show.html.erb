@@ -1,10 +1,17 @@
 <div class="container px-5 px-sm-0">
-  
-  <legend>マイページ</legend>
-  <div class="row card col-2 mb-4">
-  <%= link_to "いいねした投稿一覧",  likes_member_path(@member) %>
+  <div class="row">  
+    <div class="col-12 text-center">
+      <legend>マイページ</legend>
     </div>
-      <div class="row">
+  </div>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class=" card col-4 mb-4 text-center">
+      <%= link_to "いいねした投稿一覧はこちら",  likes_member_path(@member) %>
+    </div>
+    <div class="col-4"></div>
+  </div>
+  <div class="row">
         <span style="font-size:20px; ">登録ネコ</span>
     <% @cats.each do |cat| %>
     <div class="col-2 mb-2 card w-50 shadow-lg">
