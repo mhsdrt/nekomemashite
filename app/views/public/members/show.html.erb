@@ -14,7 +14,7 @@
   <div class="row">
         <label class="font-size:20px; ">登録ネコ</label>
     <% @cats.each do |cat| %>
-    <div class="col-2 mb-2 card w-50 shadow-lg">
+    <div class="col-2 mb-2 card w-50 shadow-lg text-center">
         <%= cat.name %>(<%= cat.sex %>)
         <%= link_to cat_path(cat.id) do %>
           <%= image_tag cat.get_cat_image(100,100) %>
