@@ -1,7 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="col-2">
+    <div class="col-3">
     </div>
-    
+    <div class="col-6 text-center">
+      <div class="form-group">
+        <label class="h4 mt-4">ネコ編集</label>
+      </div>
+      <% if @cat.errors.any? %>
+        <h6><%= @cat.errors.count %>件のエラーが発生しました</h6>
+        <ul>
+          <% @cat.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+        
+      <%= form_with model: @cat,url: cat_path do |f| %>
+        
+      <div class="form-group">
+        <label for="name">名前</label>
+        <%= f.text_field :name,class:"form-control" %>
+      </div>
+      
+      <div class="form-group">
+        <label for="sex">性別</label>
+        <%= f.text_field :sex,class:"form-control" %>
+      </div>
+      
+      <div class="form-group">
+      <%= f.submit "Update Cat", class: "btn btn-success"  %>
+      </div>
+      <% end %>
+      </div>
+      <div class="col-3">
+      </div>
+    </div>
   </div>
 </div>
