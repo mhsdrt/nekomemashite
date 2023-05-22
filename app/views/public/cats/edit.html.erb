@@ -17,8 +17,12 @@
         
       <%= form_with model: @cat,url: cat_path do |f| %>
       
-      
+
+        <div>
+          <p><%= image_tag @cat.get_cat_image(250,250) %></p>
+        </div>      
       <div class="form-group">
+
         <label for="cat_image">画像</label>
         <%= f.file_field :cat_image, accept: "image/*" ,class:"form-control" %>
       </div>
