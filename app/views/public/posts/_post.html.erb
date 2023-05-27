@@ -1,7 +1,7 @@
-    <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card mx-auto mt-4 shadow-lg text-center">
     <%= link_to image_tag( post.get_post_image(200,200) ), post_path(post.id) %>
     <%= link_to post.member.name, member_path(post.member_id) %>
-    <i class="fa fa-heart unlike-btn"></i>
-    <%= post.likes.length %>
-    <%= link_to post.content.truncate(24, separator: ' ') , post_path(post.id) %>
+    <div><i class="fa fa-heart unlike-btn"></i>
+    <%= post.likes.length %></div>
+    <%= link_to post.content.truncate(15, separator: ' ') , post_path(post.id) %>
   </div>
