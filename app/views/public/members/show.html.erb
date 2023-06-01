@@ -12,7 +12,7 @@
     <div class="col-4"></div>
   </div>
   <div class="row">
-        <label class="font-size:20px; ">登録ネコ</label>
+    <label class="font-size:20px; ">登録ネコ</label>
     <% @cats.each do |cat| %>
     <div class="col-2 mb-2 card w-50 shadow-lg text-center">
         <%= cat.name %>(<%= cat.sex %>)
@@ -24,9 +24,9 @@
   </div>
 
 
-  <span style="font-size:20px; ">投稿履歴</span>
+  <label class="font-size:20px; ">投稿履歴</label>
   <% @posts.each do |post| %>
-    <div class="col-3 card w-50 mx-right mt-4 shadow-lg">
+    <div class="col-3 card w-50 mt-2 mx-right shadow-lg">
       <%= link_to post_path(post.id) do %>
         <%= image_tag post.get_post_image(200,200) %>
       <% end %>
@@ -38,7 +38,7 @@
     </div>
   <% end %>
 
-  <div class="col-xs-3">
+  <div class="col-xs-3 mt-3">
     <%= link_to "退会する", members_quit_path ,class: "btn btn-danger " %>
   </div>
 </div>
