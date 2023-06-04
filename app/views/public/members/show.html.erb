@@ -12,28 +12,34 @@
     <div class="col-4"></div>
   </div>
   <div class="row">
+    <div class="col-12 text-center">
     <label class="font-size:20px; ">登録ネコ</label>
+    </div>
     </div>
     <div class="row">
     <% @cats.each do |cat| %>
-    <div class="col-2 mb-2 card w-50 shadow-lg text-center">
+    <div class="col-4"></div>
+    <div class="col-4 mb-2 card w-50 shadow-lg text-center">
         <%= cat.name %>(<%= cat.sex %>)
         <%= link_to cat_path(cat.id) do %>
           <%= image_tag cat.get_cat_image(100,100) %>
         <% end %>
         </div>
+        <div class="col-4"></div>
     <% end %>
   </div>
 
 
 <div class="row">
+  <div class="col-12 text-center mt-2">
   <label class="font-size:20px; ">投稿履歴</label>
+  </div>
   </div>
   <div class="row">
   <% @posts.each do |post| %>
     <div class="col-4">
   </div>
-    <div class="col-4 card w-50 mt-2 mx-right shadow-lg">
+    <div class="col-4 card w-50 mt-2 mx-right shadow-lg text-center">
 
       <%= link_to post_path(post.id) do %>
         <%= image_tag post.get_post_image(200,200) %>
@@ -49,7 +55,7 @@
   <% end %>
   </div>
 
-  <div class="col-xs-3 mt-3">
+  <div class="col-xs-12 mt-3 text-center">
     <%= link_to "退会する", members_quit_path ,class: "btn btn-danger " %>
   </div>
 </div>
