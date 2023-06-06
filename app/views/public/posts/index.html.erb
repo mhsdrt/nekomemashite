@@ -26,7 +26,8 @@
           <% end %>
 
           <span style="font-size:15px;"><%= post.content.truncate(24, separator: ' ') %></span>
-          <span style="font-size:10px;"><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></span>
+          <p><span style="font-size:15px;"><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></span>｜
+          <%= link_to "#{post.likes.count} いいね", post_path(post.id) %></p>
           </div>
           <% end %>
         </div>
