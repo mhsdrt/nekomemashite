@@ -6,12 +6,12 @@
   </div>
   <div class="row">
     <div class="col-2"></div>
-        <div class="col-md-8">
+        <div class="col-8">
           
     <% @posts.each do |post| %>
-    <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <div class="card mx-auto mt-4 shadow-lg">
                 <%= link_to cat_path(post.cat_id) do %>
-          <div class="col-6">
+          <div>
           <%= image_tag post.cat.get_cat_image(50,50), class:"mt-1 mb-1 rounded-circle"; %>
           <span style="font-size:20px; color:gray;"><%= post.cat.name %></span>
         </div>

@@ -1,10 +1,10 @@
 <div class="container text-center takasa">
   
   <div class="row">
-    <div class="col-3">
+    <div class="col-2">
       </div>
-    <div class="col-6 card mt-4">
-      <div class="mt-3"><%= image_tag @post.get_post_image(400,400) %></div>
+    <div class="col-8 card mt-4">
+      <div class="mt-3"><%= image_tag @post.get_post_image(400,400),class:"card-img-top"; %></div>
       <p><%= @post.content %></p>
       <span style="font-size:10px; color:gray;">投稿者:<%= @post.member.name %></span>
       <%= link_to cat_path(@post.cat_id) do %>
@@ -19,7 +19,7 @@
       </div>
 
     </div>
-    <div class="col-3">
+    <div class="col-2">
       </div>
   </div>
   <div class="row">
