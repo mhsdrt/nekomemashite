@@ -6,18 +6,16 @@
   </div>
   <div class="row">
     <div class="col-2"></div>
-        <div class="col-8">
-          
-    <% @posts.each do |post| %>
-    <div class="card mx-auto mt-4 shadow-lg">
-                <%= link_to cat_path(post.cat_id) do %>
-          <div>
-          <%= image_tag post.cat.get_cat_image(50,50), class:"mt-1 mb-1 rounded-circle"; %>
-          <span style="font-size:20px; color:gray;"><%= post.cat.name %></span>
-        </div>
+    <div class="col-8">
+      <% @posts.each do |post| %>
+        <div class="card mx-auto mt-4 shadow-lg">
+          <%= link_to cat_path(post.cat_id) do %>
+            <div>
+              <%= image_tag post.cat.get_cat_image(50,50), class:"mt-1 mb-1 rounded-circle"; %>
+              <span style="font-size:20px; color:gray;"><%= post.cat.name %></span>
+            </div>
           <% end %>
-
-                <%= link_to post_path(post.id) do %>
+          <%= link_to post_path(post.id) do %>
             <%= image_tag post.get_post_image(400,400),class:"card-img-top";  %>
           <% end %>
           <span style="font-size:10px; color:gray;"><%= post.created_at.strftime('%Y/%m/%d') %> | 投稿者:<%= post.member.name %> | ネコ:
@@ -28,10 +26,9 @@
           <span style="font-size:15px;"><%= post.content.truncate(24, separator: ' ') %></span>
           <p><span style="font-size:15px;"><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></span>｜
           <%= link_to "#{post.likes.count} いいね", post_path(post.id) %></p>
-          </div>
-          <% end %>
         </div>
-      <div class="col-2"></div>
-    
+      <% end %>
+    </div>
+    <div class="col-2"></div>
   </div>
 </div>
