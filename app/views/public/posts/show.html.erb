@@ -8,7 +8,7 @@
       <p class="mt-2"><%= @post.content %></p>
       <span style="font-size:10px; color:gray;">投稿者:<%= @post.member.name %></span>
       <%= link_to cat_path(@post.cat_id) do %>
-      <span style="font-size:10px; color:gray;">ネコ：<%= @post.cat.name %></span>
+        <span style="font-size:10px; color:gray;">ネコ：<%= @post.cat.name %></span>
       <% end %>
       <span style="font-size:10px; color:gray;">投稿日時：<%= @post.created_at.strftime('%Y/%m/%d/%H:%M') %></span>
 
@@ -20,12 +20,12 @@
 
     </div>
     <div class="col-2">
-      </div>
+    </div>
   </div>
   <div class="row">
   <!-- コメントの実装 -->
-      <div class="col-4">
-      </div>
+    <div class="col-4">
+    </div>
     <div class="col-4 mt-2">
       <span style="font-size:10px; color:gray;">コメント件数：<%= @post.comments.count %></span><br>
       <% @post.comments.each do |comment| %>
@@ -39,11 +39,9 @@
           <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' }  %><br>
         <% end %>
       <% end %>
-  
     </div>
-        <div class="col-4">
-      </div>
-      
+    <div class="col-4">
+    </div>
     <% if @error_comment.present? %>
       <div id="error_explanation">
         <h2><%= @error_comment.errors.count %>件のエラーが発生しました。</h2>
@@ -55,24 +53,24 @@
       </div>
     <% end %>
   
-   <div class="col-4">
-      </div>
+    <div class="col-4">
+    </div>
     <div class="col-4">
       <div class="mt-2"><%= form_with url: post_comments_path(@post) do |f| %>
         <%= f.text_area :comment, rows: '2', placeholder: "コメントをここに" %></div>
-       <button type="submit" class="btn btn-primary">送信</button>
+        <button type="submit" class="btn btn-primary">送信</button>
       <% end %>
     </div>
- <div class="col-4">
+    <div class="col-4">
+    </div>
+    <div class="col-4">
       </div>
-       <div class="col-4">
+      <div class="col-4 mt-2">
+        <% if @post.member == current_member %>
+          <td><%= link_to"Destroy",post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
+        <% end %>
       </div>
-       <div class="col-4 mt-2">
-    <% if @post.member == current_member %>
-      <td><%= link_to"Destroy",post_path(@post), method: :delete, class:"btn btn-sm btn-danger",data: { confirm: '本当に消しますか？' } %></td>
-    <% end %>
-      </div>
-       <div class="col-4">
+      <div class="col-4">
       </div>
     </div>
   </div>
