@@ -13,46 +13,46 @@
   </div>
   <div class="row">
     <div class="col-12 text-center">
-    <label class="font-size:20px; ">登録ネコ</label>
+      <label class="font-size:20px; ">登録ネコ</label>
     </div>
-    </div>
-    <div class="row">
+  </div>
+  <div class="row">
     <% @cats.each do |cat| %>
-    <div class="col-4"></div>
-    <div class="col-4 mb-2 card w-50 shadow-lg text-center">
+      <div class="col-4"></div>
+      <div class="col-4 mb-2 card w-50 shadow-lg text-center">
         <%= cat.name %>(<%= cat.sex %>)
         <%= link_to cat_path(cat.id) do %>
           <%= image_tag cat.get_cat_image(100,100) %>
         <% end %>
-        </div>
-        <div class="col-4"></div>
+      </div>
+      <div class="col-4"></div>
     <% end %>
   </div>
 
 
-<div class="row">
-  <div class="col-12 text-center mt-2">
-  <label class="font-size:20px; ">投稿履歴</label>
-  </div>
+  <div class="row">
+    <div class="col-12 text-center mt-2">
+      <label class="font-size:20px; ">投稿履歴</label>
+    </div>
   </div>
   <div class="row">
-  <% @posts.each do |post| %>
-    <div class="col-4">
-  </div>
-    <div class="col-4 card w-50 mt-2 mx-right shadow-lg text-center">
+    <% @posts.each do |post| %>
+      <div class="col-4">
+      </div>
+      <div class="col-4 card w-50 mt-2 mx-right shadow-lg text-center">
 
-      <%= link_to post_path(post.id) do %>
-        <%= image_tag post.get_post_image(200,200) %>
-      <% end %>
-      <label><%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
-         ネコ:<%= post.cat.name %></label>
-      <%= post.content.truncate(24, separator: ' ') %>
-      <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
-      <%= link_to "#{post.likes.count} いいね", post_path(post.id) %></p>
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.get_post_image(200,200) %>
+        <% end %>
+        <label><%= post.created_at.strftime('%Y/%m/%d %H:%M') %>
+        ネコ:<%= post.cat.name %></label>
+        <%= post.content.truncate(24, separator: ' ') %>
+        <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
+        <%= link_to "#{post.likes.count} いいね", post_path(post.id) %></p>
 
-  </div>
-  <div class="col-4"></div>
-  <% end %>
+      </div>
+      <div class="col-4"></div>
+    <% end %>
   </div>
 
   <div class="col-xs-12 mt-3 text-center">
