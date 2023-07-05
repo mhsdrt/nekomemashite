@@ -24,15 +24,15 @@
   </div>
   <div class="row">
   <!-- コメントの実装 -->
-    <div class="col-4">
+    <div class="col-3">
     </div>
-    <div class="col-4 mt-2">
+    <div class="col-6 mt-2">
       <span style="font-size:10px; color:gray;">コメント件数：<%= @post.comments.count %></span><br>
       <% @post.comments.each do |comment| %>
         <%= link_to member_path(comment.member_id) do %>
-          <%= comment.member.name %>
+          <span style="font-size:10px; "><%= comment.member.name %></span>
         <% end %>
-        <span style="font-size:10px; color:gray;"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M:%S') %></span>
+        <span style="font-size:10px; color:gray;"><%= comment.created_at.strftime('%Y/%m/%d/%H:%M:%S') %></span><br>
         <span style="mt-2"><%= comment.comment %></span>
     
         <% if comment.member == current_member %>
@@ -40,7 +40,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-4">
+    <div class="col-3">
     </div>
     <% if @error_comment.present? %>
       <div id="error_explanation">
