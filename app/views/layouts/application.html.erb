@@ -37,7 +37,7 @@
             <div class="collapse navbar-collapse mb-2 justify-content-around" id="navbarNavDropdown">
               
                 <% if member_signed_in? %>
-                <div>
+                <div class="mt-2">
                   <%= link_to "/posts" ,class: "btn text-black btn-light", method: :get do %>
                     <i class="fas fa-paw"></i>ネコ活一覧
                   <% end %>
