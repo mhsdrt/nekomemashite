@@ -6,8 +6,8 @@
   </div>
   <div class="row">
     <div class="col-4"></div>
-    <div class=" card col-4 mb-4 text-center">
-      <%= link_to "いいねした投稿一覧はこちら",  likes_member_path(@member) %>
+    <div class=" card col-md-4 mb-4 text-center">
+      <span style="font-size:20px;"><%= link_to "いいねした投稿",  likes_member_path(@member) %></span>
     </div>
     <div class="col-4"></div>
   </div>
@@ -16,18 +16,22 @@
       <label class="font-size:20px; ">登録ネコ</label>
     </div>
   </div>
-  <div class="row">
-    <% @cats.each do |cat| %>
+  
+  <% @cats.each do |cat| %>
+    <div class="row">
       <div class="col-4"></div>
-      <div class="col-4 mb-2 card w-50 shadow-lg text-center">
+      <div class="col-md-4">
+        <div class="card mx-auto mt-4 shadow-lg text-center">
         <%= cat.name %>(<%= cat.sex %>)
         <%= link_to cat_path(cat.id) do %>
-          <%= image_tag cat.get_cat_image(200,200) %>
+          <%= image_tag cat.get_cat_image(150,150) %>
         <% end %>
+        </div>
       </div>
       <div class="col-4"></div>
-    <% end %>
   </div>
+    <% end %>
+  
 
 
   <div class="row">
@@ -35,12 +39,13 @@
       <label class="font-size:20px; ">投稿履歴</label>
     </div>
   </div>
-  <div class="row">
-    <% @posts.each do |post| %>
+  
+  <% @posts.each do |post| %>
+    <div class="row">
       <div class="col-4">
       </div>
-      <div class="col-4 card w-50 mt-2 mx-right shadow-lg text-center">
-
+      <div class="col-md-4">
+        <div class="card mx-auto mt-4 shadow-lg text-center">
         <%= link_to post_path(post.id) do %>
           <%= image_tag post.get_post_image(200,200) %>
         <% end %>
@@ -49,11 +54,11 @@
         <%= post.content.truncate(24, separator: ' ') %>
         <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %>
         <%= link_to "#{post.likes.count} いいね", post_path(post.id) %></p>
-
+        </div>
       </div>
       <div class="col-4"></div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
   <div class="col-xs-12 mt-3 text-center">
     <%= link_to "退会する", members_quit_path ,class: "btn btn-danger " %>
